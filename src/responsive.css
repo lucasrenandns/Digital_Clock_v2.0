@@ -1,0 +1,13 @@
+@media screen and (max-width: 500px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+    
+    .time-container {
+        gap: 3.5rem;
+    }
+
+    .time h2 {
+        font-size: 3.3rem;
+    }
+}
