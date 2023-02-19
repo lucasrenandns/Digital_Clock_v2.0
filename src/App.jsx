@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 
 function App() {
   const [hours, setHours] = useState("")
   const [minutes, setMinutes] = useState("")
   const [seconds, setSeconds] = useState("")
   const [period, setPeriod] = useState("")
-  const [periodText, setTextPeriod] = useState("")
-  const [monthFormat, setMonth] = useState("")
-  const [dateFormat, setDate] = useState("")
-  const [yearFormat, setYear] = useState("")
+  const [periodText, setPeriodText] = useState("")
+  const [monthFormat, setMonthFormat] = useState("")
+  const [dateFormat, setDateFormat] = useState("")
+  const [yearFormat, setYearFormat] = useState("")
   const [dayText, setDayText] = useState("")
   const [monthText, setMonthText] = useState("")
   const [dateText, setDateText] = useState("")
@@ -26,12 +25,12 @@ function App() {
     setYearText(now.getFullYear())
   }
 
-  const getDate = () => {
+  const getDateFormat = () => {
     const now = new Date()
     
-    setYear(now.getFullYear() + " /")
-    setMonth(addValue(now.getMonth() + 1) + " /")
-    setDate(addValue(now.getDate()))
+    setYearFormat(now.getFullYear() + " /")
+    setMonthFormat(addValue(now.getMonth() + 1) + " /")
+    setDateFormat(addValue(now.getDate()))
   }
 
   const addValue = (element) => {
@@ -43,7 +42,7 @@ function App() {
     }
   }
 
-  const clock = () => {
+  const getClock = () => {
     const now = new Date()
 
     setHours(addValue(now.getHours()))
@@ -52,17 +51,17 @@ function App() {
     
     if(hours < 12) {
       setPeriod("AM")
-      setTextPeriod("Ante miridiem")
+      setPeriodText("Ante miridiem")
     }
     else {
       setPeriod("PM")
-      setTextPeriod("Post meridiem")
+      setPeriodText("Post meridiem")
     }
-    setInterval(clock, 1000)
+    setInterval(getClock, 1000)
   }
 
-  useEffect(clock)
-  useEffect(getDate)
+  useEffect(getClock)
+  useEffect(getDateFormat)
   useEffect(getDateText)
 
   return (
